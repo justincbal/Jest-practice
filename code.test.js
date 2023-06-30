@@ -1,4 +1,4 @@
-const {capitalize, reverseString, Calculator, shift} = require('./code');
+const {capitalize, reverseString, Calculator, shift, analyzeArray} = require('./code');
 
 // Capitalize: Take a string and return it with first letter capitalized hello => Hello
 test('Return a string capitalized', () => {
@@ -24,4 +24,15 @@ test('Shift characters by set amount', () => {
     expect(shift('justin', 3)).toMatch(/mxvwlq/);
     expect(shift('xyz', 5)).toMatch(/cde/);
     expect(shift('justin', 10)).toMatch(/tecdsx/);
+})
+
+// Analyze array: Check array of numbers and return min, max, average, length
+test('Analyze an array', () => {
+    const object = [1,8,3,4,2,6];
+    expect(analyzeArray(object)).toMatchObject({
+        average: 4,
+        min: 1,
+        max: 8,
+        length: 6
+    })
 })

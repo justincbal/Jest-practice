@@ -39,4 +39,30 @@ function shift(str, num) {
     return newStr;
 }
 
-module.exports = {capitalize, reverseString, Calculator, shift};
+function analyzeArray(arr) {
+    class Obj {
+        constructor(avg, min, max, length) {
+            this.average = avg;
+            this.min = min;
+            this.max = max;
+            this.length = length;
+        }
+    }
+
+    // Get length
+    let length = arr.length;
+    // Get max
+    let maxNum = Math.max(...arr);
+    // Get min
+    let minNum = Math.min(...arr);
+    // Get average
+    let total = arr.reduce((a, b) => a + b, 0);
+    let average = total / length;
+
+    const analyzedArr = new Obj(average, minNum, maxNum, length);
+    
+    return analyzedArr;
+
+}
+
+module.exports = {capitalize, reverseString, Calculator, shift, analyzeArray};
